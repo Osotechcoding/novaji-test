@@ -9,7 +9,7 @@ $data = [
     'language' => 'en'
 ];
 $ch = curl_init($api_url);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); g
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, [
     "Content-Type: application/json",
@@ -24,10 +24,10 @@ if (curl_errno($ch)) {
 }
 
 curl_close($ch);
-$response_data = json_decode($response, true);
+$api_response = json_decode($response, true);
 
-if (isset($response_data['answer'])) {
-    echo "Answer: " . $response_data['answer'];
+if (isset($api_response['answer'])) {
+    echo "Answer: " . $api_response['answer'];
 } else {
     echo "Couldn't fetch the answer. Response: " . $response;
 }
